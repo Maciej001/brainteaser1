@@ -171,25 +171,19 @@ const daniel = (numbers, sum) => {
   return hasSum;
 };
 
-const fns = [
-  { name: "tuffi", fn: tuffi },
-  { name: "tom", fn: tom },
-  { name: "daniel", fn: daniel },
-  { name: "jamie", fn: jamie },
-  { name: "stefan", fn: stefan }
-];
+const fns = [ tuffi, tom, daniel, jamie, stefan]
 
-function runner(arg) {
-  console.time(arg.name);
+function runner(fn) {
+  console.time(fn.name);
   for (let i = 0; i <= 1000000; i++) {
-    arg.fn(numbers, sum);
+    fn(numbers, sum);
   }
-  console.timeEnd(arg.name);
+  console.timeEnd(fn.name);
 }
 
 function runAll() {
-  fns.forEach((arg) => {
-    runner(arg);
+  fns.forEach((fn) => {
+    runner(fn);
   });
 }
 
